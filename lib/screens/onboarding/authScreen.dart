@@ -3,14 +3,11 @@ import 'package:spotify_clone/utils/appTheme.dart';
 import 'package:spotify_clone/utils/images.dart';
 import 'package:spotify_clone/utils/widget.dart';
 
-class AuthScreen extends StatefulWidget {
+import 'createAccount.dart';
+
+class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
 
-  @override
-  State<AuthScreen> createState() => _AuthScreenState();
-}
-
-class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -28,18 +25,25 @@ class _AuthScreenState extends State<AuthScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 45.0),
             child: AppButtons(
+                height: 40,
+                width: MediaQuery.of(context).size.width,
                 borderColor: Colors.transparent,
                 leadingAvailable: false,
                 fontColor: Colors.black,
                 buttonColor: AppColors.appGreen,
                 borderRadius: 45.0,
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context)
+                      .push(createRoute(const CreateAccount()));
+                },
                 child: Text("Sign up for free",
                     style: textTheme.headline1!.copyWith(color: Colors.black))),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 45.0),
             child: AppButtons(
+                height: 40,
+                width: MediaQuery.of(context).size.width,
                 borderColor: Colors.white,
                 leadingAvailable: true,
                 fontColor: Colors.black,
@@ -56,6 +60,8 @@ class _AuthScreenState extends State<AuthScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 45.0),
             child: AppButtons(
+                height: 40,
+                width: MediaQuery.of(context).size.width,
                 borderColor: Colors.white,
                 leadingAvailable: true,
                 fontColor: Colors.black,
@@ -74,6 +80,8 @@ class _AuthScreenState extends State<AuthScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 45.0),
             child: AppButtons(
+                height: 40,
+                width: MediaQuery.of(context).size.width,
                 borderColor: Colors.white,
                 leadingAvailable: true,
                 fontColor: Colors.black,

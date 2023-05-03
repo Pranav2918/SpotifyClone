@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/screens/authScreen.dart';
 import 'package:spotify_clone/utils/images.dart';
+
+import 'onboarding/authScreen.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -18,6 +19,7 @@ class _SplashState extends State<Splash> {
     super.initState();
   }
 
+  //Navigation after splash
   void moveToAuth() {
     Timer(const Duration(seconds: 1), () {
       Navigator.pushReplacement(
