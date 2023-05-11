@@ -117,7 +117,7 @@ class SearchBar extends StatelessWidget {
   }
 }
 
-//Music Player 
+//Music Player
 class MusicPlayer extends StatelessWidget {
   final TextTheme textTheme;
   const MusicPlayer({super.key, required this.textTheme});
@@ -129,7 +129,7 @@ class MusicPlayer extends StatelessWidget {
       child: Container(
         height: 50,
         decoration: BoxDecoration(
-            color: const Color(0xFF550A1C).withOpacity(0.5),
+            color: const Color(0xFF550A1C),
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(10.0),
                 topRight: Radius.circular(10.0))),
@@ -143,6 +143,7 @@ class MusicPlayer extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: 2.0),
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 2,
                   child: Text("From Me to You - Mono / Remastered",

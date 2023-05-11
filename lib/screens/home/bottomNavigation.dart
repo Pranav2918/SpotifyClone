@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/screens/home/homeScreen.dart';
+import 'package:spotify_clone/screens/search/searchScreen.dart';
 import 'package:spotify_clone/utils/appTheme.dart';
 import 'package:spotify_clone/utils/images.dart';
 
@@ -8,7 +9,7 @@ class BottomNavigationHandler extends StatelessWidget {
 
   final List<Widget> _screens = [
     const HomeScreen(),
-    Container(color: Colors.blue),
+    const SearchScreen(),
     Container(color: Colors.green),
   ];
   BottomNavigationHandler({super.key});
