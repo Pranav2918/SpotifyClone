@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/utils/appTheme.dart';
+import 'package:spotify_clone/utils/images.dart';
 
+//Dynamic Application Button
 class AppButtons extends StatelessWidget {
   final Color buttonColor;
   final double borderRadius;
@@ -48,6 +50,7 @@ class AppButtons extends StatelessWidget {
   }
 }
 
+//Appbar
 class AppHeader extends StatelessWidget {
   final Widget title;
   final bool isActionAvailable;
@@ -74,6 +77,7 @@ class AppHeader extends StatelessWidget {
   }
 }
 
+//Route for page transition
 Route createRoute(Widget screen) {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) => screen,
@@ -92,6 +96,7 @@ Route createRoute(Widget screen) {
   );
 }
 
+//Search Bar
 class SearchBar extends StatelessWidget {
   const SearchBar({super.key});
 
@@ -108,6 +113,77 @@ class SearchBar extends StatelessWidget {
           enabledBorder: InputBorder.none,
           filled: true,
           fillColor: AppColors.whiteButton),
+    );
+  }
+}
+
+//Music Player 
+class MusicPlayer extends StatelessWidget {
+  final TextTheme textTheme;
+  const MusicPlayer({super.key, required this.textTheme});
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        height: 50,
+        decoration: BoxDecoration(
+            color: const Color(0xFF550A1C).withOpacity(0.5),
+            borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10.0),
+                topRight: Radius.circular(10.0))),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+              child: Image.asset(AppImages.played),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: Text("From Me to You - Mono / Remastered",
+                      overflow: TextOverflow.ellipsis,
+                      style: textTheme.headline1!.copyWith(
+                          fontSize: 13,
+                          color: AppColors.whiteButton,
+                          fontWeight: FontWeight.w400)),
+                ),
+                const SizedBox(height: 5.0),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: Text("Eminem",
+                      style: textTheme.headline1!.copyWith(
+                          fontSize: 10,
+                          color: AppColors.appGreen,
+                          fontWeight: FontWeight.w400)),
+                ),
+                const Expanded(child: SizedBox()),
+                Container(
+                  height: 4,
+                  width: MediaQuery.of(context).size.width / 5,
+                  color: AppColors.whiteButton,
+                )
+              ],
+            ),
+            const Expanded(child: SizedBox()),
+            const Center(
+                child: Icon(
+              Icons.bluetooth,
+              color: AppColors.appGreen,
+            )),
+            const Center(
+                child: Icon(
+              Icons.pause,
+              color: Colors.white,
+            )),
+            const SizedBox(width: 10.0)
+          ],
+        ),
+      ),
     );
   }
 }
