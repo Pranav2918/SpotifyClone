@@ -101,50 +101,68 @@ class HomeScreen extends StatelessWidget {
                               )),
                     ),
                   ),
-                  const SizedBox(height: 10.0),
-                  Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: const Color(0xFF550A1C).withOpacity(0.5),
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(10.0),
-                            topRight: Radius.circular(10.0))),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding:
-                              const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
-                          child: Image.asset(AppImages.played),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("From Me to You - Mono / Remastered",
-                                style: textTheme.headline1!.copyWith(
-                                    fontSize: 13,
-                                    color: AppColors.whiteButton,
-                                    fontWeight: FontWeight.w400)),
-                            Text("BEATSPILL+",
-                                style: textTheme.headline1!.copyWith(
-                                    fontSize: 10,
-                                    color: AppColors.appGreen,
-                                    fontWeight: FontWeight.w400))
-                          ],
-                        ),
-                        const Expanded(child: SizedBox()),
-                        const Center(
-                            child: Icon(
-                          Icons.bluetooth,
-                          color: AppColors.appGreen,
-                        )),
-                        const Center(
-                            child: Icon(
-                          Icons.pause,
-                          color: Colors.white,
-                        )),
-                        const SizedBox(width: 10.0)
-                      ],
+                  const Expanded(child: SizedBox()),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: const Color(0xFF550A1C).withOpacity(0.5),
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(10.0),
+                              topRight: Radius.circular(10.0))),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                            child: Image.asset(AppImages.played),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width / 2,
+                                child: Text(
+                                    "From Me to You - Mono / Remastered",
+                                    overflow: TextOverflow.ellipsis,
+                                    style: textTheme.headline1!.copyWith(
+                                        fontSize: 13,
+                                        color: AppColors.whiteButton,
+                                        fontWeight: FontWeight.w400)),
+                              ),
+                              const SizedBox(height: 5.0),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width / 2,
+                                child: Text("Eminem",
+                                    style: textTheme.headline1!.copyWith(
+                                        fontSize: 10,
+                                        color: AppColors.appGreen,
+                                        fontWeight: FontWeight.w400)),
+                              ),
+                              const Expanded(child: SizedBox()),
+                              Container(
+                                height: 4,
+                                width: MediaQuery.of(context).size.width / 5,
+                                color: AppColors.whiteButton,
+                              )
+                            ],
+                          ),
+                          const Expanded(child: SizedBox()),
+                          const Center(
+                              child: Icon(
+                            Icons.bluetooth,
+                            color: AppColors.appGreen,
+                          )),
+                          const Center(
+                              child: Icon(
+                            Icons.pause,
+                            color: Colors.white,
+                          )),
+                          const SizedBox(width: 10.0)
+                        ],
+                      ),
                     ),
                   )
                 ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_clone/screens/home/bottomNavigation.dart';
 import 'package:spotify_clone/utils/appTheme.dart';
 import 'package:spotify_clone/utils/images.dart';
 import 'package:spotify_clone/utils/widget.dart';
@@ -88,13 +89,26 @@ class AuthScreen extends StatelessWidget {
                 buttonColor: Colors.transparent,
                 borderRadius: 45.0,
                 leadingIcon: Image.asset(AppImages.appleLogo),
-                onTap: () {
-                  print("Sign up");
-                },
+                onTap: () {},
                 child: Text("Continue with Apple",
                     style: textTheme.headline1!
                         .copyWith(color: AppColors.whiteButton))),
-          )
+          ),
+          const Expanded(child: SizedBox()),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushReplacement(
+                  context, createRoute(BottomNavigationHandler()));
+            },
+            child: Text(
+              "Login",
+              style: textTheme.headline1!.copyWith(
+                  color: AppColors.whiteButton,
+                  fontSize: 18,
+                  decoration: TextDecoration.underline),
+            ),
+          ),
+          const Expanded(child: SizedBox()),
         ],
       ),
     );
