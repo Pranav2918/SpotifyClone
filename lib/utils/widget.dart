@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_clone/screens/album/albumView.dart';
 import 'package:spotify_clone/utils/appTheme.dart';
 import 'package:spotify_clone/utils/images.dart';
 
@@ -124,65 +125,89 @@ class MusicPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Container(
-        height: 50,
-        decoration: BoxDecoration(
-            color: const Color(0xFF550A1C),
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10.0),
-                topRight: Radius.circular(10.0))),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
-              child: Image.asset(AppImages.played),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 2.0),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 2,
-                  child: Text("From Me to You - Mono / Remastered",
-                      overflow: TextOverflow.ellipsis,
-                      style: textTheme.headline1!.copyWith(
-                          fontSize: 13,
-                          color: AppColors.whiteButton,
-                          fontWeight: FontWeight.w400)),
-                ),
-                const SizedBox(height: 5.0),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 2,
-                  child: Text("Eminem",
-                      style: textTheme.headline1!.copyWith(
-                          fontSize: 10,
-                          color: AppColors.appGreen,
-                          fontWeight: FontWeight.w400)),
-                ),
-                const Expanded(child: SizedBox()),
-                Container(
-                  height: 4,
-                  width: MediaQuery.of(context).size.width / 5,
-                  color: AppColors.whiteButton,
-                )
-              ],
-            ),
-            const Expanded(child: SizedBox()),
-            const Center(
-                child: Icon(
-              Icons.bluetooth,
-              color: AppColors.appGreen,
-            )),
-            const Center(
-                child: Icon(
-              Icons.pause,
-              color: Colors.white,
-            )),
-            const SizedBox(width: 10.0)
-          ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  const AlbumView(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                const begin = Offset(0.0, 1.0);
+                const end = Offset.zero;
+                const curve = Curves.ease;
+
+                var tween = Tween(begin: begin, end: end)
+                    .chain(CurveTween(curve: curve));
+
+                return SlideTransition(
+                  position: animation.drive(tween),
+                  child: child,
+                );
+              },
+            ));
+      },
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
+          height: 50,
+          decoration: const BoxDecoration(
+              color: Color(0xFF550A1C),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10.0),
+                  topRight: Radius.circular(10.0))),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: Image.asset(AppImages.played),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 2.0),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: Text("From Me to You - Mono / Remastered",
+                        overflow: TextOverflow.ellipsis,
+                        style: textTheme.headline1!.copyWith(
+                            fontSize: 13,
+                            color: AppColors.whiteButton,
+                            fontWeight: FontWeight.w400)),
+                  ),
+                  const SizedBox(height: 5.0),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: Text("Eminem",
+                        style: textTheme.headline1!.copyWith(
+                            fontSize: 10,
+                            color: AppColors.appGreen,
+                            fontWeight: FontWeight.w400)),
+                  ),
+                  const Expanded(child: SizedBox()),
+                  Container(
+                    height: 4,
+                    width: MediaQuery.of(context).size.width / 5,
+                    color: AppColors.whiteButton,
+                  )
+                ],
+              ),
+              const Expanded(child: SizedBox()),
+              const Center(
+                  child: Icon(
+                Icons.bluetooth,
+                color: AppColors.appGreen,
+              )),
+              const Center(
+                  child: Icon(
+                Icons.pause,
+                color: Colors.white,
+              )),
+              const SizedBox(width: 10.0)
+            ],
+          ),
         ),
       ),
     );
