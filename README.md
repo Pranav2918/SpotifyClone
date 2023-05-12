@@ -1,16 +1,17 @@
 # spotify_clone
 
-A new Flutter project.
+- I have tried to replicate UI of spotify (Music Platform)
 
-## Getting Started
+### You can find inside code
 
-This project is a starting point for a Flutter application.
+1. More stateless widgets instead of stateful widgets.
+2. All routes are navigating through an animation 
+3. Custom Class for widgets 
+4. Sapareted theme, image files.
+5. No code duplocation 
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="1 (1).JPEG" height="500em" /> <img src="1 (2).JPEG" height="500em" /> <img src="1 (3).JPEG" height="500em" />
+<img src="1 (4).JPEG" height="500em" /> <img src="1 (5).JPEG" height="500em" /> <img src="1 (6).JPEG" height="500em" />
+<img src="1 (7).JPEG" height="500em" />
