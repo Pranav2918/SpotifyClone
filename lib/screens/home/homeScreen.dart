@@ -103,7 +103,8 @@ class HomeScreen extends StatelessWidget {
                             fontSize: 24, color: AppColors.whiteButton)),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 18.0, right: 18.0),
+                    padding: const EdgeInsets.only(
+                        left: 18.0, right: 18.0, top: 10.0),
                     child: SizedBox(
                       height: 100,
                       child: ListView(
